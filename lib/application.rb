@@ -17,6 +17,7 @@ class Application < HotCocoaApplication
   
   def start
     load_api_token
+    load_accounts
     
     application :name => "phare" do |app|
       app.delegate = self

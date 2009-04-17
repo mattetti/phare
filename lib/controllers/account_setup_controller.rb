@@ -12,8 +12,10 @@ module AccountSetupController
   
   def add_project
     Proc.new{
-     Logger.info('this is where we will store the saved projects')
-     application.accounts << @new_account_name.stringValue
+     application.accounts << @new_account_name.stringValue unless application.accounts.include?(@new_account_name.stringValue)
+     NSUserDefaults.standardUserDefaults.setObject(application.accounts, forKey:"accounts")
+     NSUserDefaults.standardUserDefaults.synchronize
+     application.load_accounts
      @account_box.data = application.accounts
     }
   end
