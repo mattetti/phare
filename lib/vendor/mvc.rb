@@ -6,6 +6,7 @@ class HotCocoaApplication
   attr_reader :views, :current_view, :main_window, :segments
   
   def initialize
+    load_models
     load_controllers
     load_views
     # the start method should be befined in the HotCocoaApplication instance
@@ -106,6 +107,12 @@ class HotCocoaApplication
         require file
         klass = File.basename(file).gsub(/\.rb$/, '').camel_case
         register_view(klass, Object.const_get(klass).new.description)
+      end
+    end
+    
+    def load_models
+      Dir.glob(File.join(File.dirname(__FILE__), '..', 'models', '*.rb')).each do |file|
+        require file
       end
     end
   

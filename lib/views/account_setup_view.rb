@@ -1,10 +1,5 @@
-class AccountSetupView
+class AccountSetupView < HotCocoaView
   include AccountSetupController
-  attr_reader :application
-  
-  def initialize(app=nil)
-    @application = app
-  end
   
   def description 
     "Lighthouse Account Settings" 

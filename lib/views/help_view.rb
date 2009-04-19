@@ -1,13 +1,7 @@
-class WebView
+class HelpView < HotCocoaView
   
-  attr_reader :application
-  
-  def initialize(app=nil)
-    @application = app
-  end
-
-  def description 
-    "Lighthouse Help" 
+  def description
+    "Help"
   end
 
   def render
