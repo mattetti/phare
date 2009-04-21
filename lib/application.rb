@@ -30,7 +30,7 @@ class Application < HotCocoaApplication
       else
         # Switch to the lighthouse account if the user didn't provide a token or
         # if it's not valid
-        display("Lighthouse Account Settings")
+        display("AccountSetupView")
       end
     end
   end
